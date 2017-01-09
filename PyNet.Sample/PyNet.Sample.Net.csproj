@@ -49,17 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\[Shared]\Python\Binaries\2.7.9 - 32-bit\python27.zip">
+    <None Include="..\PyNet\python27.zip">
       <Link>python27.zip</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\..\[Shared]\Python\Binaries\2.7.9 - 32-bit\python27.dll">
-      <Link>python27.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PyNet.Test\PyNet.Test.csproj">
@@ -70,6 +63,11 @@
       <Project>{3fc95167-fa2d-4343-8180-00c8de458dae}</Project>
       <Name>PyNet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\PyNet\python27.dll">
+      <Link>python27.dll</Link>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
