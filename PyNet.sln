@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyNet", "PyNet\PyNet.csproj", "{3FC95167-FA2D-4343-8180-00C8DE458DAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyNet.Test", "PyNet.Test\PyNet.Test.csproj", "{CA6547D6-5FB4-48BE-AF05-FC812113F797}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Utilities.Python", "..\Utilities\Python\Utilities.Python.shproj", "{AC91026F-6383-4CAF-9E30-AC00CE74EA45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyNet.Sample.Net", "PyNet.Sample\PyNet.Sample.Net.csproj", "{475F9C82-DFC1-420D-922D-85740391F737}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PyNet.Sample.Python", "PyNet.Sample\PyNet.Sample.Python.pyproj", "{81AAC29A-F384-4245-AFB2-4320E1A35277}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\Utilities\Python\Python.projitems*{3fc95167-fa2d-4343-8180-00c8de458dae}*SharedItemsImports = 4
+		..\Utilities\Python\Python.projitems*{ac91026f-6383-4caf-9e30-ac00ce74ea45}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FC95167-FA2D-4343-8180-00C8DE458DAE}.Debug|x64.ActiveCfg = Debug|x64
+		{3FC95167-FA2D-4343-8180-00C8DE458DAE}.Debug|x64.Build.0 = Debug|x64
+		{3FC95167-FA2D-4343-8180-00C8DE458DAE}.Debug|x86.ActiveCfg = Debug|x86
+		{3FC95167-FA2D-4343-8180-00C8DE458DAE}.Debug|x86.Build.0 = Debug|x86
+		{3FC95167-FA2D-4343-8180-00C8DE458DAE}.Release|x64.ActiveCfg = Release|x64
+		{3FC95167-FA2D-4343-8180-00C8DE458DAE}.Release|x64.Build.0 = Release|x64
+		{3FC95167-FA2D-4343-8180-00C8DE458DAE}.Release|x86.ActiveCfg = Release|x86
+		{3FC95167-FA2D-4343-8180-00C8DE458DAE}.Release|x86.Build.0 = Release|x86
+		{CA6547D6-5FB4-48BE-AF05-FC812113F797}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CA6547D6-5FB4-48BE-AF05-FC812113F797}.Debug|x64.Build.0 = Debug|Any CPU
+		{CA6547D6-5FB4-48BE-AF05-FC812113F797}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CA6547D6-5FB4-48BE-AF05-FC812113F797}.Debug|x86.Build.0 = Debug|Any CPU
+		{CA6547D6-5FB4-48BE-AF05-FC812113F797}.Release|x64.ActiveCfg = Release|Any CPU
+		{CA6547D6-5FB4-48BE-AF05-FC812113F797}.Release|x64.Build.0 = Release|Any CPU
+		{CA6547D6-5FB4-48BE-AF05-FC812113F797}.Release|x86.ActiveCfg = Release|Any CPU
+		{CA6547D6-5FB4-48BE-AF05-FC812113F797}.Release|x86.Build.0 = Release|Any CPU
+		{475F9C82-DFC1-420D-922D-85740391F737}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{475F9C82-DFC1-420D-922D-85740391F737}.Debug|x64.Build.0 = Debug|Any CPU
+		{475F9C82-DFC1-420D-922D-85740391F737}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{475F9C82-DFC1-420D-922D-85740391F737}.Debug|x86.Build.0 = Debug|Any CPU
+		{475F9C82-DFC1-420D-922D-85740391F737}.Release|x64.ActiveCfg = Release|Any CPU
+		{475F9C82-DFC1-420D-922D-85740391F737}.Release|x64.Build.0 = Release|Any CPU
+		{475F9C82-DFC1-420D-922D-85740391F737}.Release|x86.ActiveCfg = Release|Any CPU
+		{475F9C82-DFC1-420D-922D-85740391F737}.Release|x86.Build.0 = Release|Any CPU
+		{81AAC29A-F384-4245-AFB2-4320E1A35277}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{81AAC29A-F384-4245-AFB2-4320E1A35277}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{81AAC29A-F384-4245-AFB2-4320E1A35277}.Release|x64.ActiveCfg = Release|Any CPU
+		{81AAC29A-F384-4245-AFB2-4320E1A35277}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
