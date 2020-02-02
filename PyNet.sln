@@ -13,8 +13,6 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PyNet.Sample.Python", "PyNe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PyNet.BinariesExtractor", "PyNet.BinariesExtractor\PyNet.BinariesExtractor.csproj", "{1CFD7EC9-5821-4F9E-A912-DD03B26BAB09}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication1", "PythonApplication1\PythonApplication1.pyproj", "{67EB6187-E82A-4939-B10C-D7E5FE55738B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,12 +77,6 @@ Global
 		{1CFD7EC9-5821-4F9E-A912-DD03B26BAB09}.Release|x64.Build.0 = Release|Any CPU
 		{1CFD7EC9-5821-4F9E-A912-DD03B26BAB09}.Release|x86.ActiveCfg = Release|Any CPU
 		{1CFD7EC9-5821-4F9E-A912-DD03B26BAB09}.Release|x86.Build.0 = Release|Any CPU
-		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Release|x64.ActiveCfg = Release|Any CPU
-		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
