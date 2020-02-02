@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -50,13 +49,6 @@ namespace PyNet.Test
         public static T EvaluateAndConvert<T>(string code, params object[] args)
         {
             return (T)EvaluateAndConvert(code, args);
-        }
-
-        [TestCategory("Python")]
-        [TestMethod]
-        public void fdgdf()
-        {
-            
         }
     }
 }

@@ -5,13 +5,15 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PyNet", "PyNet\PyNet.csproj", "{3FC95167-FA2D-4343-8180-00C8DE458DAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyNet.Test", "PyNet.Test\PyNet.Test.csproj", "{CA6547D6-5FB4-48BE-AF05-FC812113F797}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PyNet.Test", "PyNet.Test\PyNet.Test.csproj", "{CA6547D6-5FB4-48BE-AF05-FC812113F797}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PyNet.Sample.Net", "PyNet.Sample\PyNet.Sample.Net.csproj", "{51C6BB52-E84A-4E2C-BAC0-5E885D9045DA}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PyNet.Sample.Python", "PyNet.Sample\PyNet.Sample.Python.pyproj", "{81AAC29A-F384-4245-AFB2-4320E1A35277}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyNet.BinariesExtractor", "PyNet.BinariesExtractor\PyNet.BinariesExtractor.csproj", "{1CFD7EC9-5821-4F9E-A912-DD03B26BAB09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PyNet.BinariesExtractor", "PyNet.BinariesExtractor\PyNet.BinariesExtractor.csproj", "{1CFD7EC9-5821-4F9E-A912-DD03B26BAB09}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication1", "PythonApplication1\PythonApplication1.pyproj", "{67EB6187-E82A-4939-B10C-D7E5FE55738B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,12 @@ Global
 		{1CFD7EC9-5821-4F9E-A912-DD03B26BAB09}.Release|x64.Build.0 = Release|Any CPU
 		{1CFD7EC9-5821-4F9E-A912-DD03B26BAB09}.Release|x86.ActiveCfg = Release|Any CPU
 		{1CFD7EC9-5821-4F9E-A912-DD03B26BAB09}.Release|x86.Build.0 = Release|Any CPU
+		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Release|x64.ActiveCfg = Release|Any CPU
+		{67EB6187-E82A-4939-B10C-D7E5FE55738B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,7 @@
 
 namespace PyNet.Sample
 {
+    using System.Linq;
     using Python;
 
     class Program

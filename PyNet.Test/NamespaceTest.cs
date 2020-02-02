@@ -1,7 +1,5 @@
-﻿using System;
-using System.Reflection;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Python;
 
 namespace PyNet.Test
