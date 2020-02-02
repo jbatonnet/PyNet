@@ -4,12 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Security.Policy;
 using System.Security;
+using System.Security.Policy;
 
-using RGiesecke.DllExport;
+//using RGiesecke.DllExport;
 
 using Python;
+
 using static Python.Python;
 
 public static class Module
@@ -18,12 +19,12 @@ public static class Module
     public static PythonClass ClrClass { get; private set; }
     public static PythonObject ClrObject { get; private set; }
 
-    [DllExport(CallingConvention = CallingConvention.Cdecl)]
+    //[DllExport(CallingConvention = CallingConvention.Cdecl)]
     public static void initclr()
     {
         Initialize("clr");
     }
-    [DllExport(CallingConvention = CallingConvention.Cdecl)]
+    //[DllExport(CallingConvention = CallingConvention.Cdecl)]
     public static void initPyNet()
     {
         Initialize("PyNet");

@@ -1,26 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using RGiesecke.DllExport;
-using System.Runtime.InteropServices;
-
-using Python;
-using Python.Net;
-using static Python.Python;
 
 namespace Python.Net
 {
     public class ClrExtensionMethod : PythonObject
     {
-        public static PythonClass Type { get; private set; }
+        public new static PythonClass Type { get; private set; }
 
         private static Dictionary<string, ClrNamespace> namespaces = new Dictionary<string, ClrNamespace>();
         private static Dictionary<IntPtr, ClrNamespace> instances = new Dictionary<IntPtr, ClrNamespace>();

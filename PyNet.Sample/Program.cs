@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PyNet.Sample
 {
@@ -16,7 +11,7 @@ namespace PyNet.Sample
             Python.Py_NoSiteFlag = true;
             Python.Py_Initialize();
 
-            PythonModule testModule = PythonModule.FromFile(@"..\..\..\PyNet.Sample\Test.py");
+            PythonModule testModule = PythonModule.FromFile(@"..\..\..\Test.py");
             dynamic testDynamic = testModule;
 
             {

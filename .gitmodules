@@ -1,4 +1,0 @@
-[submodule "Utilities"]
-	path = Utilities
-	url = https://github.com/jbatonnet/utilities
-	branch = master
