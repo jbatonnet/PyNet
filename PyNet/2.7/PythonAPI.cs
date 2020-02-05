@@ -359,7 +359,7 @@ namespace Python
         public static extern int PyRun_SimpleString(string code);
 
         [DllImport(library, CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr PyRun_String(string code, IntPtr st, IntPtr globals, IntPtr locals);
+        public static extern IntPtr PyRun_String(string code, int start, IntPtr globals, IntPtr locals);
 
         #endregion
         #region Objects

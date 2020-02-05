@@ -13,9 +13,9 @@ using Python;
 
 using static Python.Python;
 
-public static class Module
+public static class PyNetModule
 {
-    public static PythonModule PyNetModule { get; private set; }
+    public static PythonModule PythonModule { get; private set; }
     public static PythonClass ClrClass { get; private set; }
     public static PythonObject ClrObject { get; private set; }
 
@@ -30,12 +30,12 @@ public static class Module
         Initialize("PyNet");
     }
 
-    private static void Initialize(string name)
+    public static void Initialize(string name)
     {
         Py_NoSiteFlag = true;
         Py_Initialize();
 
-        PyNetModule = new PythonModule(name);
+        PythonModule = new PythonModule(name);
         ClrClass = new PythonClass("clr");
 
         ClrClass.AddMethod(nameof(__getattr__), __getattr__);
@@ -47,7 +47,7 @@ public static class Module
         //ClrClass.AddProperty("Property", GetProperty, SetProperty);
         
         ClrObject = ClrClass.Create();
-        PyNetModule.SetAttribute("clr", ClrObject);
+        PythonModule.SetAttribute("clr", ClrObject);
     }
 
     public static PythonObject Method(PythonObject self, PythonTuple args)

@@ -17,7 +17,7 @@ namespace PyNet.Test
             Python.Py_NoSiteFlag = true;
             Python.Py_Initialize();
 
-            Module.initclr();
+            PyNetModule.initclr();
         }
 
         public static PythonObject Evaluate(string code, params object[] args)
@@ -30,13 +30,32 @@ namespace PyNet.Test
             PythonDictionary globals = module.Dictionary;
             PythonDictionary locals = new PythonDictionary();
 
-            locals.Add("clr", Module.ClrObject);
+            locals.Add("clr", PyNetModule.ClrObject);
             locals.Add("args", new PythonTuple(args.Select(a => (PythonObject)ObjectManager.ToPython(a))));
 
             PythonObject result;
             using (PythonException.Checker)
                 result = Python.PyEval_EvalCode(compilation, globals, locals);
             
+            return result;
+        }
+        public static PythonModule Build(string code, params object[] args)
+        {
+            PythonObject compilation;
+            using (PythonException.Checker)
+                compilation = Python.Py_CompileString(code, $"{nameof(PythonTest)}.{nameof(Evaluate)}", Python.Py_file_input);
+
+            PythonModule module = new PythonModule("__main__");
+            PythonDictionary globals = module.Dictionary;
+            PythonDictionary locals = new PythonDictionary();
+
+            locals.Add("clr", PyNetModule.ClrObject);
+            locals.Add("args", new PythonTuple(args.Select(a => (PythonObject)ObjectManager.ToPython(a))));
+
+            PythonModule result;
+            using (PythonException.Checker)
+                result = (PythonModule)Python.PyImport_ExecCodeModule(module.Name, compilation);
+
             return result;
         }
         public static object EvaluateAndConvert(string code, params object[] args)
