@@ -9,5 +9,14 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>PyNet Python Interop Core</description>
     <copyright>© 2020 Julien Batonnet</copyright>
+    <contentFiles>
+      <files include="python27.dll" buildAction="Content" copyToOutput="true" />
+      <files include="python27.zip" buildAction="Content" copyToOutput="true" />
+    </contentFiles>
   </metadata>
+  <files>
+    <file src="python27.dll" target="contentFiles/any/any" /> 
+    <file src="python27.zip" target="contentFiles/any/any" /> 
+    <file src="bin/$configuration$/netstandard2.0/PyNet.dll" target="lib/netstandard2.0" /> 
+  </files>
 </package>
