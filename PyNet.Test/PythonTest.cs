@@ -30,7 +30,7 @@ namespace PyNet.Test
             PythonDictionary globals = module.Dictionary;
             PythonDictionary locals = new PythonDictionary();
 
-            locals.Add("clr", PyNetModule.ClrObject);
+            //locals.Add("clr", PyNetModule.ClrObject);
             locals.Add("args", new PythonTuple(args.Select(a => (PythonObject)ObjectManager.ToPython(a))));
 
             PythonObject result;
@@ -49,14 +49,13 @@ namespace PyNet.Test
             PythonDictionary globals = module.Dictionary;
             PythonDictionary locals = new PythonDictionary();
 
-            locals.Add("clr", PyNetModule.ClrObject);
+            locals.Add("clr", PyNetModule.ClrObject); // FIXME
             locals.Add("args", new PythonTuple(args.Select(a => (PythonObject)ObjectManager.ToPython(a))));
 
-            PythonModule result;
             using (PythonException.Checker)
-                result = (PythonModule)Python.PyImport_ExecCodeModule(module.Name, compilation);
+                Python.PyImport_ExecCodeModule(module.Name, compilation);
 
-            return result;
+            return module;
         }
         public static object EvaluateAndConvert(string code, params object[] args)
         {

@@ -176,6 +176,23 @@ namespace Python
                 if (type == typeof(ulong)) { result = unsigned; return true; }
             }
 
+            if (pythonType == PythonNumber.FloatType)
+            {
+                double value = PyFloat_AsDouble(pointer);
+
+                if (type == typeof(bool)) { result = value != 0; return true; }
+                if (type == typeof(sbyte)) { result = (sbyte)value; return true; }
+                if (type == typeof(byte)) { result = (byte)value; return true; }
+                if (type == typeof(short)) { result = (short)value; return true; }
+                if (type == typeof(ushort)) { result = (ushort)value; return true; }
+                if (type == typeof(int)) { result = (int)value; return true; }
+                if (type == typeof(uint)) { result = (uint)value; return true; }
+                if (type == typeof(long)) { result = (long)value; return true; }
+                if (type == typeof(float)) { result = (float)value; return true; }
+                if (type == typeof(double)) { result = value; return true; }
+                if (type == typeof(ulong)) { result = value; return true; }
+            }
+
             if (pythonType != PythonString.Type && PySequence_Check(pointer))
             {
                 if (type.IsArray)
@@ -549,12 +566,11 @@ namespace Python
                 return new PythonType(PyLong_Type);
             }
         }
-
-        public long Value
+        public static PythonType FloatType
         {
             get
             {
-                return PyLong_AsLongLong(Pointer);
+                return new PythonType(PyFloat_Type);
             }
         }
 
@@ -569,7 +585,19 @@ namespace Python
         }
         public PythonNumber(long value)
         {
-            Pointer = PyLong_FromLong(value);
+            Pointer = PyLong_FromLongLong(value);
+        }
+        public PythonNumber(ulong value)
+        {
+            Pointer = PyLong_FromUnsignedLongLong(value);
+        }
+        public PythonNumber(float value)
+        {
+            Pointer = PyFloat_FromDouble(value);
+        }
+        public PythonNumber(double value)
+        {
+            Pointer = PyFloat_FromDouble(value);
         }
 
         public static explicit operator PythonNumber(bool value)
@@ -586,7 +614,7 @@ namespace Python
         }
         public static explicit operator long(PythonNumber value)
         {
-            return value.Value;
+            return PyLong_AsLongLong(value.Pointer);
         }
     }
     public class PythonString : PythonSequence
@@ -1199,7 +1227,10 @@ namespace Python
         {
             using (PythonException.Checker)
             {
-                PythonFunction pythonFunction = new PythonFunction(name, (a, b) => StaticMethodProxy(a, b, function), PythonFunctionType.VarArgs, documentation);
+                PythonFunction pythonFunction = new PythonFunction(name, (a, b) => function((PythonTuple)b), PythonFunctionType.VarArgs, documentation);
+                Dictionary[name] = pythonFunction;
+
+                /*PythonFunction pythonFunction = new PythonFunction(name, a => StaticMethodProxy(a, function), PythonFunctionType.Static, documentation);
                 PythonMethod pythonMethod = new PythonMethod(this, pythonFunction);
 
                 PythonTuple staticMethodArgs = new PythonTuple(1);
@@ -1207,7 +1238,7 @@ namespace Python
 
                 PythonObject pythonStaticMethod = PyObject_CallObject(PythonMethod.StaticType, staticMethodArgs);
 
-                PyObject_SetAttrString(this, name, pythonStaticMethod);
+                PyObject_SetAttrString(this, name, pythonStaticMethod);*/
             }
         }
         public void AddProperty(string name, TwoArgsPythonObjectFunction getter, TwoArgsPythonObjectFunction setter = null)
@@ -1231,7 +1262,7 @@ namespace Python
         }
         public void AddStaticProperty(string name, OneArgPythonObjectFunction getter, OneArgPythonObjectFunction setter = null)
         {
-            PythonMethod getMethod = new PythonMethod(this, new PythonFunction("get_" + name, (a, b) => StaticMethodProxy(a, b, getter)));
+            PythonMethod getMethod = new PythonMethod(this, new PythonFunction("get_" + name, a => StaticMethodProxy(a, getter)));
 
             PythonType classMethodType = PythonModule.Builtin.GetAttribute("classmethod") as PythonType;
 
@@ -1286,9 +1317,9 @@ namespace Python
 
             return function(self, new PythonTuple(args), new PythonDictionary(c));
         }
-        private static IntPtr StaticMethodProxy(IntPtr a, IntPtr b, OneArgPythonObjectFunction function)
+        private static IntPtr StaticMethodProxy(IntPtr a, OneArgPythonObjectFunction function)
         {
-            return function((PythonTuple)b);
+            return function((PythonTuple)a);
         }
     }
     public class PythonModule : PythonObject

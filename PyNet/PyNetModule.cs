@@ -36,6 +36,15 @@ public static class PyNetModule
         Py_Initialize();
 
         PythonModule = new PythonModule(name);
+
+        PythonModule.AddFunction(nameof(AddReference), a => AddReference(null, a));
+        PythonModule.AddFunction(nameof(Break), a => Break(null, null));
+
+        PythonModule.SetAttribute(nameof(System), new ClrNamespace(nameof(System)));
+
+
+
+
         ClrClass = new PythonClass("clr");
 
         ClrClass.AddMethod(nameof(__getattr__), __getattr__);
@@ -47,20 +56,8 @@ public static class PyNetModule
         //ClrClass.AddProperty("Property", GetProperty, SetProperty);
         
         ClrObject = ClrClass.Create();
-        PythonModule.SetAttribute("clr", ClrObject);
-    }
 
-    public static PythonObject Method(PythonObject self, PythonTuple args)
-    {
-        return new PythonTuple(1, 2, 3, 4);
-    }
-    public static PythonObject GetProperty(PythonObject self, PythonTuple args)
-    {
-        return new PythonTuple(1, 2, 3, 4);
-    }
-    public static PythonObject SetProperty(PythonObject self, PythonTuple args)
-    {
-        return new PythonTuple(1, 2, 3, 4);
+        PythonModule.SetAttribute("clr", ClrObject);
     }
 
     public static PythonObject AddReference(PythonObject self, PythonTuple args)
@@ -162,7 +159,7 @@ public static class PyNetModule
     private static Assembly CheckAndLoad(string fullName)
     {
         var zone = Zone.CreateFromUrl("file:///" + fullName);
-        if (zone.SecurityZone != SecurityZone.MyComputer)
+        if (zone != null && zone.SecurityZone != SecurityZone.MyComputer)
             return null;
 
         return Assembly.LoadFile(fullName);

@@ -479,12 +479,20 @@ namespace Python
             }
 
             // Add methods
-            var methodGroups = type.GetMethods()
-                                   .Except(propertyMethods)
-                                   .Where(m => m.Name != "GetHashCode")
-                                   .GroupBy(m => m.Name);
+            var methodGroups = type.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                .Except(propertyMethods)
+                .Where(m => m.Name != "GetHashCode")
+                .GroupBy(m => m.Name);
+
             foreach (var methodGroup in methodGroups)
                 AddMethod(methodGroup.Key, (a, b) => MethodProxy(methodGroup.ToArray(), a, b as PythonTuple));
+
+            var staticMethodGroups = type.GetMethods(BindingFlags.Public | BindingFlags.Static)
+                .Where(m => m.Name != "GetType")
+                .GroupBy(m => m.Name);
+
+            foreach (var methodGroup in staticMethodGroups)
+                AddStaticMethod(methodGroup.Key, a => MethodProxy(methodGroup.ToArray(), null, a as PythonTuple));
 
             // Add enum values
             if (type.IsEnum)
