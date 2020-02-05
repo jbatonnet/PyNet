@@ -2,10 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>DYNAMIC</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DYNAMIC</DefineConstants>
+  <PropertyGroup>
+    <Description>Python and .NET interop library</Description>
+    <Authors>Julien Batonnet</Authors>
   </PropertyGroup>
 
   <ItemGroup>
